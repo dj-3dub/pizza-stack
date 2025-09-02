@@ -1,0 +1,12 @@
+digraph iac_local {
+  rankdir=LR;
+  node [shape=box, style=rounded];
+
+  subgraph cluster_localstack {
+    label="LocalStack (AWS emulation)";
+    style=dashed;
+
+    s3 [label="S3: iac-localstack-demo-bucket"];
+    ddb [label="DynamoDB: iac-localstack-demo-table"];
+  }
+}

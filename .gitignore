@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Terraform
+**/.terraform/
+**/.terraform.lock.hcl
+**/*.tfstate
+**/*.tfstate.*
+**/.terraform.tfstate.lock.info
+**/crash.log
+
+# Local env
+.env
+.env.local
+.idea/
+.vscode/
+
+# LocalStack data
+.localstack/
+
+# Diagrams
+diagrams/*.svg
+
+# Docs renders
+docs/*.svg
+docs/*.png

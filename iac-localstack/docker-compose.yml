@@ -1,0 +1,16 @@
+services:
+  localstack:
+    image: localstack/localstack:${LOCALSTACK_VERSION:-latest}
+    container_name: localstack
+    environment:
+      - SERVICES=s3,dynamodb,lambda,apigateway,cloudwatch,iam,sts,logs
+      - AWS_DEFAULT_REGION=${AWS_REGION:-us-east-1}
+      - EDGE_PORT=4566
+      - DOCKER_HOST=unix:///var/run/docker.sock
+    ports:
+      - "4566:4566"
+      - "4571:4571"
+    volumes:
+      - "./.localstack:/var/lib/localstack"
+      - "/var/run/docker.sock:/var/run/docker.sock"
+    restart: unless-stopped
