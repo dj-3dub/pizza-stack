@@ -89,9 +89,14 @@ make ci-local
 
 Runs the complete pipeline: start LocalStack → build Lambda → Terraform apply → smoke checks → destroy → shutdown.
 
-🖼️ Architecture Diagram
+## 🖼️ Architecture Diagram
 
-<details> <summary>Graphviz source (docs/architecture.dot)</summary>
+![Architecture](docs/architecture.svg)
+
+<details>
+<summary>Graphviz source (docs/architecture.dot)</summary>
+
+```dot
 digraph pizza_stack {
     rankdir=LR;
     node [shape=box, style=rounded, fontname="Helvetica"];
@@ -102,9 +107,9 @@ digraph pizza_stack {
         color=gray;
 
         apigw   [label="API Gateway\n(Pizza API)", shape=ellipse, style=filled, fillcolor="#f4c542", fontcolor="black"];
-        lambda  [label="Lambda\n(iac-localstack-hello)", shape=ellipse, style=filled, fillcolor="#c23b22", fontcolor="white"];
-        ddb     [label="DynamoDB\n(iac-localstack-demo-table)", shape=box3d, style=filled, fillcolor="#3b7a57", fontcolor="white"];
-        s3      [label="S3\n(iac-localstack-demo-bucket)", shape=folder, style=filled, fillcolor="#e4c9a8", fontcolor="black"];
+        lambda  [label="Lambda\n(pizza-stack-hello)", shape=ellipse, style=filled, fillcolor="#c23b22", fontcolor="white"];
+        ddb     [label="DynamoDB\n(pizza-stack-demo-table)", shape=box3d, style=filled, fillcolor="#3b7a57", fontcolor="white"];
+        s3      [label="S3\n(pizza-stack-demo-bucket)", shape=folder, style=filled, fillcolor="#e4c9a8", fontcolor="black"];
     }
 
     user [label="Client\n(curl / browser)", shape=oval, style=filled, fillcolor="#fff2cc", fontcolor="black"];
@@ -114,7 +119,6 @@ digraph pizza_stack {
     lambda -> ddb   [label="read/write toppings"];
     lambda -> s3    [label="store objects"];
 
-    # Legend
     legend [shape=none, margin=0, label=<
         <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
             <TR><TD COLSPAN="2"><B>Legend</B></TD></TR>
