@@ -4,8 +4,7 @@
 
 ✨ Overview
 
-This project provisions a serverless application entirely on LocalStack
- using Terraform.
+This project provisions a serverless application entirely on LocalStack using Terraform.
 It simulates common AWS services without incurring real cloud costs, making it perfect for demos, prototyping, and learning.
 
 What it builds:
@@ -42,25 +41,26 @@ Validation: Python (boto3, requests) smoke checker
 
 CI/CD Ready: Local GitHub Actions workflow (make ci-local simulates full pipeline)
 
-📂 Project Structure
-iac-localstack/
-├── terraform/              # Terraform IaC for S3, DynamoDB, Lambda, API Gateway
-│   ├── main.tf
-│   ├── provider.tf
-│   ├── variables.tf
-│   └── outputs.tf
-├── terraform/lambda/       # Lambda function & build script
-│   ├── hello.py
-│   └── build.sh
+## 📂 Project Structure
+
+pizza-stack/
+├── terraform/ # Terraform IaC for S3, DynamoDB, Lambda, API Gateway
+│ ├── main.tf
+│ ├── provider.tf
+│ ├── variables.tf
+│ ├── outputs.tf
+│ └── lambda/
+│ ├── hello.py
+│ └── build.sh
 ├── scripts/
-│   ├── pizza_stack_check.py # Python smoke test (✅/❌)
-│   └── requirements.txt
+│ ├── pizza_stack_check.py # Python smoke test (✅/❌)
+│ └── requirements.txt
 ├── docs/
-│   ├── architecture.dot     # Graphviz diagram source
-│   ├── architecture.svg     # Rendered system diagram
-│   └── architecture.png
-├── docker-compose.yml       # LocalStack container
-├── Makefile                 # Automation (up, tf-apply, smoke, ci-local, etc.)
+│ ├── architecture.dot # Graphviz diagram source (with legend)
+│ ├── architecture.svg # Rendered system diagram (used in README)
+│ └── architecture.png # PNG export (good for LinkedIn)
+├── docker-compose.yml # LocalStack container
+├── Makefile # Automation (up, tf-apply, smoke, arch, ci-local, etc.)
 └── README.md
 
 🚀 Usage
