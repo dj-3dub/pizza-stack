@@ -129,8 +129,8 @@ digraph pizza_stack {
         </TABLE>
     >];
 }
-
 </details>
+
 🔑 Key Skills Demonstrated
 
 Infrastructure as Code (Terraform)
