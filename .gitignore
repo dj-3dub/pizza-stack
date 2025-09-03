@@ -26,3 +26,13 @@ diagrams/*.svg
 # Docs renders
 docs/*.svg
 docs/*.png
+# --- repo hygiene ---
+aws/
+iac-localstack/
+.env
+.venv/
+__pycache__/
+*.zip
+*.tfstate
+*.tfstate.backup
+.terraform/
