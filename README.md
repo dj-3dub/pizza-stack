@@ -43,25 +43,27 @@ CI/CD Ready: Local GitHub Actions workflow (make ci-local simulates full pipelin
 
 ## 📂 Project Structure
 
+```text
 pizza-stack/
-├── terraform/ # Terraform IaC for S3, DynamoDB, Lambda, API Gateway
-│ ├── main.tf
-│ ├── provider.tf
-│ ├── variables.tf
-│ ├── outputs.tf
-│ └── lambda/
-│ ├── hello.py
-│ └── build.sh
+├── terraform/                  # Terraform IaC for S3, DynamoDB, Lambda, API Gateway
+│   ├── main.tf
+│   ├── provider.tf
+│   ├── variables.tf
+│   ├── outputs.tf
+│   └── lambda/
+│       ├── hello.py
+│       └── build.sh
 ├── scripts/
-│ ├── pizza_stack_check.py # Python smoke test (✅/❌)
-│ └── requirements.txt
+│   ├── pizza_stack_check.py    # Python smoke test (✅/❌)
+│   └── requirements.txt
 ├── docs/
-│ ├── architecture.dot # Graphviz diagram source (with legend)
-│ ├── architecture.svg # Rendered system diagram (used in README)
-│ └── architecture.png # PNG export (good for LinkedIn)
-├── docker-compose.yml # LocalStack container
-├── Makefile # Automation (up, tf-apply, smoke, arch, ci-local, etc.)
+│   ├── architecture.dot        # Graphviz diagram source (with legend)
+│   ├── architecture.svg        # Rendered system diagram (used in README)
+│   └── architecture.png        # PNG export (good for LinkedIn)
+├── docker-compose.yml          # LocalStack container
+├── Makefile                    # Automation (up, tf-apply, smoke, arch, ci-local, etc.)
 └── README.md
+
 
 🚀 Usage
 1. Start LocalStack
@@ -89,6 +91,7 @@ make ci-local
 
 Runs the complete pipeline: start LocalStack → build Lambda → Terraform apply → smoke checks → destroy → shutdown.
 
+```markdown
 ## 🖼️ Architecture Diagram
 
 ![Architecture](docs/architecture.svg)
@@ -129,7 +132,6 @@ digraph pizza_stack {
         </TABLE>
     >];
 }
-</details>
 
 🔑 Key Skills Demonstrated
 
