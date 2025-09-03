@@ -91,15 +91,9 @@ make ci-local
 
 Runs the complete pipeline: start LocalStack → build Lambda → Terraform apply → smoke checks → destroy → shutdown.
 
-```markdown
-## 🖼️ Architecture Diagram
+🖼️ Architecture Diagram
 
-![Architecture](docs/architecture.svg)
-
-<details>
-<summary>Graphviz source (docs/architecture.dot)</summary>
-
-```dot
+<details> <summary>Graphviz source (docs/architecture.dot)</summary>
 digraph pizza_stack {
     rankdir=LR;
     node [shape=box, style=rounded, fontname="Helvetica"];
@@ -132,6 +126,8 @@ digraph pizza_stack {
         </TABLE>
     >];
 }
+
+</details>
 
 🔑 Key Skills Demonstrated
 
