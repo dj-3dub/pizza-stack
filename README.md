@@ -93,41 +93,7 @@ Runs the complete pipeline: start LocalStack → build Lambda → Terraform appl
 
 🖼️ Architecture Diagram
 
-<details> <summary>Graphviz source (docs/architecture.dot)</summary>
-digraph pizza_stack {
-    rankdir=LR;
-    node [shape=box, style=rounded, fontname="Helvetica"];
-
-    subgraph cluster_localstack {
-        label="LocalStack (AWS services)";
-        style=dashed;
-        color=gray;
-
-        apigw   [label="API Gateway\n(Pizza API)", shape=ellipse, style=filled, fillcolor="#f4c542", fontcolor="black"];
-        lambda  [label="Lambda\n(pizza-stack-hello)", shape=ellipse, style=filled, fillcolor="#c23b22", fontcolor="white"];
-        ddb     [label="DynamoDB\n(pizza-stack-demo-table)", shape=box3d, style=filled, fillcolor="#3b7a57", fontcolor="white"];
-        s3      [label="S3\n(pizza-stack-demo-bucket)", shape=folder, style=filled, fillcolor="#e4c9a8", fontcolor="black"];
-    }
-
-    user [label="Client\n(curl / browser)", shape=oval, style=filled, fillcolor="#fff2cc", fontcolor="black"];
-
-    user -> apigw [label="/slice/health\n/toppings"];
-    apigw -> lambda [label="invoke"];
-    lambda -> ddb   [label="read/write toppings"];
-    lambda -> s3    [label="store objects"];
-
-    legend [shape=none, margin=0, label=<
-        <TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="4">
-            <TR><TD COLSPAN="2"><B>Legend</B></TD></TR>
-            <TR><TD BGCOLOR="#f4c542">🟡 Cheese Yellow</TD><TD>API Gateway</TD></TR>
-            <TR><TD BGCOLOR="#c23b22"><FONT COLOR="white">🍅 Tomato Red</FONT></TD><TD>Lambda</TD></TR>
-            <TR><TD BGCOLOR="#3b7a57"><FONT COLOR="white">🌿 Basil Green</FONT></TD><TD>DynamoDB</TD></TR>
-            <TR><TD BGCOLOR="#e4c9a8">🍞 Crust Beige</TD><TD>S3</TD></TR>
-        </TABLE>
-    >];
-}
-
-</details>
+![Architecture](docs/architecture.svg)
 
 🔑 Key Skills Demonstrated
 
